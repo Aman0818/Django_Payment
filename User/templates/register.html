@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            background-image: url(image2.png);
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .registration-form {
+            width: 550px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        .registration-form label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .registration-form .form-control {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .registration-form .form-check-label {
+            font-weight: 400;
+        }
+
+        .registration-form button[type="submit"] {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .registration-form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .form-row .col {
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert alert-danger alert-dismissible fade show alert-custom" role="alert" style="display: {{ display }};">
+        <div class="alert-text">
+            {{ error }}
+        </div>
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <div class="registration-form">
+        <h2>REGISTER NOW!</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <label for="phone"> Phone Number:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+                </div>
+                <div class="col">
+                    <label for="linkedin"> LinkedIn Profile:</label>
+                    <input type="text" class="form-control" id="linkedin" name="linkedin" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="col">
+                    <label for="confirm_password">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <a href="/"><small> I have Already Registered!</small></a>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Proceed</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS, jQuery, and Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

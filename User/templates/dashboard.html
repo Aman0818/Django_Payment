@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .content-container {
+            display: flex;
+            position: relative;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding:20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffc107;
+            color: #fff;
+        }
+        .scrollablesection {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .round-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ffc107;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .dropdown-menu {
+            min-width: 140px;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ffc107;
+            color: white;
+        }
+    </style>
+    <title>Simple Dashboard</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">User Dashboard</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="profileDropdown" role="button" data-toggle="dropdown">
+                        <div class="round-logo"><i class="fas fa-user"></i></div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="sidebar">
+            <a href="/"><i class="fas fa-home"></i>&nbsp&nbsp Home</a>
+            <a href="/premium"><i class="fas fa-star"></i>&nbsp&nbsp Premium Page</a>
+            <a href="#"><i class="fas fa-cog"></i>&nbsp&nbsp Settings</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp&nbsp Logout</a>
+        </div>
+        <div class="scrollablesection">
+            {% block scrollablesection %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
